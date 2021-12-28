@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:54:57 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/28 14:30:57 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/12/28 16:48:15 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class	Bureaucrat
 		void	incrGrade();
 		void	decrGrade();
 		void	signForm(Form &form);
+		void	executeForm(Form const &form);
 
 		class	GradeTooHighException : public std::exception
 		{

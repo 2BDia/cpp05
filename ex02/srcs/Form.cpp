@@ -6,17 +6,25 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:52:17 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/28 14:20:11 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/12/28 16:51:31 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("Default"), _signed(false), _toSign(150), _toExec(150)
+Form::Form(void) : _name("Default"), _target("Default"), _signed(false), _toSign(150), _toExec(150)
 {
 }
 
 Form::Form(std::string name, int toSign, int toExec) : _name(name), _signed(false), _toSign(toSign), _toExec(toExec)
+{
+	if (toSign < 1 || toExec < 1)
+		throw (Form::GradeTooHighException());
+	else if (toSign > 150 || toExec > 150)
+		throw (Form::GradeTooLowException());
+}
+
+Form::Form(std::string name, std::string target, int toSign, int toExec) : _name(name), _target(target), _signed(false), _toSign(toSign), _toExec(toExec)
 {
 	if (toSign < 1 || toExec < 1)
 		throw (Form::GradeTooHighException());
@@ -42,6 +50,11 @@ Form	&Form::operator=(Form const &rhs)
 std::string const	Form::getName(void) const
 {
 	return (this->_name);
+}
+
+std::string const	Form::getTarget(void) const
+{
+	return (this->_target);
 }
 
 bool	Form::getSigned(void) const
@@ -70,6 +83,14 @@ void	Form::beSigned(Bureaucrat const &signing)
 	}
 	else
 		throw (Form::AlreadySignedException());
+}
+
+void	Form::execute(Bureaucrat const &executor) const
+{
+	if (!this->_signed)
+		throw (Form::NotSignedException());
+	else if (executor.getGrade() > this->_toExec)
+		throw (Form::GradeTooLowException());
 }
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs)

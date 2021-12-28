@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:57:46 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/28 14:31:47 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/12/28 16:57:25 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,24 @@ void	Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->_name << " signed the " << form.getName() << " form" << std::endl;
+		std::cout << *this << " signed the " << form.getName() << " form, required rank to sign : " << form.getToSign() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->_name << " couldn't sign the " << form.getName() << " form because " << e.what() << std::endl;
+		std::cerr << *this << " couldn't sign the " << form.getName() << " form because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.action(*this);
+		std::cout << *this << " executed the " << form.getName() << " form, required rank to execute : " << form.getToExec() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << *this << " couldn't execute the " << form.getName() << " form because " << e.what() << std::endl;
 	}
 }
 

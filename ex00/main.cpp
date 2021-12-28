@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:39:33 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/27 15:49:18 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/12/28 14:20:38 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(void)
 
 	try
 	{
-		std::cout << juliette;
+		std::cout << juliette << std::endl;
 		juliette.decrGrade();
-		std::cout << juliette;
-		std::cout << james;
+		std::cout << juliette << std::endl;
+		std::cout << james << std::endl;
 		james.incrGrade();
-		std::cout << james;
+		std::cout << james << std::endl;
 		juliette.incrGrade();
 		juliette.incrGrade();
 		// james.decrGrade();
