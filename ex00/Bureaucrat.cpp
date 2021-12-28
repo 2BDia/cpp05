@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:57:46 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/27 17:03:10 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2021/12/28 14:20:17 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	Bureaucrat::decrGrade(void)
 
 std::ostream	&operator<<(std::ostream &o, Bureaucrat const &rhs)
 {
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return (o);
 }
