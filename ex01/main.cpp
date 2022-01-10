@@ -6,7 +6,7 @@
 /*   By: rvan-aud <rvan-aud@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 14:39:33 by rvan-aud          #+#    #+#             */
-/*   Updated: 2021/12/28 14:38:46 by rvan-aud         ###   ########.fr       */
+/*   Updated: 2022/01/10 13:01:51 by rvan-aud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	main(void)
 		Form	highForm("highForm", 19, 80);
 		Bureaucrat	juliette("Juliette", 20);
 
-		juliette.signForm(lowForm);
 		std::cout << juliette << std::endl;
+		std::cout << lowForm << std::endl;
+		juliette.signForm(lowForm);
 		juliette.signForm(lowForm);
 
 		std::cout << std::endl;
